@@ -8,19 +8,16 @@ namespace PooLabTransporte
     {
         protected Transporte(int pasajeros)
         {
-            this._Pasajeros = pasajeros;
-        }
+            this._pasajeros = pasajeros;
+        }              
 
-        
-
-        public int GetPasajeros
+        public int getPasajeros
         {
-            get { return _Pasajeros; }
+            get { return _pasajeros; }
             
-        }
+        }        
 
-
-        int _Pasajeros; 
+        private int _pasajeros; 
 
         public abstract void Avanzar();
 

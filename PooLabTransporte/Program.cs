@@ -7,6 +7,7 @@ namespace PooLabTransporte
     {
         static void Main(string[] args)
         {
+            /*Se Crea Una lista llamada "transportes" con diez objetos cargados */
             List<Transporte> transportes = new List<Transporte>
             {
                 new Avion(1000),
@@ -18,30 +19,28 @@ namespace PooLabTransporte
                 new Automovil(4),
                 new Automovil(3),
                 new Automovil(2),
-                new Automovil(1)
-                
-
+                new Automovil(1)           
 
             };
-            int loopAvion = 0;
-            int loopAuto = 0;
+            
+            int contadorAvion = 0;
+            int contadorAuto = 0;
+
+            /*Iteración que busca que tipo de transporte es y le asigna un número */
             foreach (Transporte transporte in transportes)
-            {
-
-
+            {                                            
 
                 if (transporte.GetType().ToString() == typeof(Avion).ToString())
                 {
-                    loopAvion++;
-                    Console.WriteLine("Avion {0}:" + transporte.GetPasajeros + " pasajeros", loopAvion);
+                    contadorAvion++;
+                    Console.WriteLine($"Avion {contadorAvion}:{transporte.getPasajeros} pasajeros");
                 }
                 else
                 {
-                    loopAuto++;
-                    Console.WriteLine("Automovil {0}:" + transporte.GetPasajeros + " pasajeros", loopAuto);
+                    contadorAuto++;
+                    Console.WriteLine($"Automovil {contadorAuto}:{transporte.getPasajeros} pasajeros");
                 }
             }
-
 
             Console.ReadKey();
         }
