@@ -1,0 +1,49 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Practica HTML+CSS+JS</title>
+    <style>
+        #age {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CONTACTO</h1>
+    <P>Completa tus datos.</P>
+
+    <form style="width: 300px;" action="">
+        <fieldset>
+            <legend>Información Personal:</legend>
+            <label for="">Nombre:</label><br>
+            <input type="text" id="fname" name="fname"><br>
+            <label for="">Apellido:</label><br>
+            <input type="text" id="lname" name="lname"><br>
+            <label for="">Edad: </label><br>
+            <input type="text" id="age" name="age"><br><br>
+            <input type="radio" id="masculino" name="genero" value="masculino">
+            <label for="male">Masculino</label><br>
+            <input type="radio" id="femenino" name="genero" value="femenino">
+            <label for="female">Femenino</label><br>
+            <input type="radio" id="otro" name="genero" value="otro">
+            <label for="other">Otro</label>
+        </fieldset>
+        <fieldset>
+            <legend>Información Adicional:</legend>
+            <label for="">Empresa</label><br>
+            <input type="text" id="empresa" name="empresa" placeholder="Ingrese su empresa"><br>
+        </fieldset>
+        <br>
+        <input type="button" value="Submit" id="submit">
+        <button type="button" id="Boton1">Limpiar</button>
+    </form>
+    <div id="error" style="color:red;"></div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
