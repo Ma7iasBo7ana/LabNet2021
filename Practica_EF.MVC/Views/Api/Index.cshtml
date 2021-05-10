@@ -1,0 +1,21 @@
+﻿@model List<Practica_EF.MVC.Models.Cultura>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>APi Index</h2>
+
+@foreach (var cultura in Model)
+{
+<tr>
+    <td scope="row">@cultura.convocatorias</td>
+    <td scope="row">@cultura.institutos</td>
+    <td scope="row">@cultura.museos</td>
+    <td scope="row">@cultura.organismos</td>
+    <td scope="row">@cultura.programas</td>
+    <td scope="row">@cultura.tramites</td>
+    <td scope="row">@cultura.usuarios</td>
+
+</tr>
+
+}
