@@ -1,0 +1,19 @@
+﻿@model Practica_EF.MVC.Models.TerritoriesView
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h1>Insertar Nuevo Territorio</h1>
+
+@using (Html.BeginForm("Insert", "Territories", FormMethod.Post))
+{
+    <label>Id:</label> @Html.TextBoxFor(t => t.Id)
+    @Html.ValidationMessageFor(t => t.Id);
+    <br />
+    <label>Description:</label> @Html.TextBoxFor(t => t.Descripcion)
+    <br />
+    <input type="submit" class="btn-success" value="Guardar" />
+
+
+}

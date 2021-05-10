@@ -1,0 +1,35 @@
+﻿@model List<Practica_EF.MVC.Models.TerritoriesView> 
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h1>Listado de La tabla Territories</h1>
+
+
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Region ID</th>
+                <th scope="col">Descripción Territorio</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var territorio in Model)
+            {
+            <tr>
+                <th scope="row">@territorio.Id</th>
+                <td scope="row">@territorio.Descripcion</td>
+                <td>@Html.ActionLink("Borrar", "Deletes", new { id = territorio.Id }, new { @class = "btn btn-danger" })</td>
+                <td>@Html.ActionLink("Editar", "Update", new { id = territorio.Id,descripcion=territorio.Descripcion}, new { @class = "btn btn-warning" })</td>
+            </tr>
+
+            }
+        </tbody>        
+    </table>
+
+    <div>
+        @Html.ActionLink("Insertar nuevo territorio", "Insert", "Territories", new { @class = "btn btn-info" })
+    </div>
+

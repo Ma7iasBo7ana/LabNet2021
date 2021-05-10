@@ -1,0 +1,17 @@
+﻿@model Practica_EF.MVC.Models.TerritoriesView
+
+@{
+    Layout = null;
+}
+
+<h1>Vista para update</h1>
+
+@using (Html.BeginForm("Update", "Territories", FormMethod.Post))
+{
+    <label>ID:</label> @Html.TextBoxFor(t => t.Id, new { @class = "form-control", @readonly = "true" })
+    <br />
+    <label>Description:</label> @Html.TextBoxFor(t => t.Descripcion)
+    <input type="submit" class="btn-success" value="Guardar" />
+
+
+}
