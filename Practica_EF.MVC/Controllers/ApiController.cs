@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using Newtonsoft.Json.Linq;
 using Practica_EF.MVC.Models;
 using System;
 using System.Collections.Generic;
@@ -12,23 +12,40 @@ namespace Practica_EF.MVC.Controllers
 {
     public class ApiController : Controller
     {
-        // GET: Api
-        //public ActionResult Index()
-        //{
-            
-        //    return View();
-        //}
+        
 
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> ApiView()
         {
-            var httpClient = new HttpClient();
-            var json = await httpClient.GetStringAsync("https://www.cultura.gob.ar/api/v2.0/");
+            Numbers numero = new Numbers();
+            List<Numbers> lista = new List<Numbers>();
+            var client = new HttpClient();
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri("https://numbersapi.p.rapidapi.com/1492/year?json=true&fragment=true"),
+                Headers =
+                {
+                    { "x-rapidapi-key", "9d965bc278msh1229257d346fedcp18043fjsn32a68b92685b" },
+                    { "x-rapidapi-host", "numbersapi.p.rapidapi.com" },
+                },
+            };
+            using (var response = await client.SendAsync(request))
+            {
+                response.EnsureSuccessStatusCode();
+                var body = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(body);
+                JObject jObject = JObject.Parse(body);
 
-            //var ListaNumeros = JsonConvert.DeserializeObject<List<Cultura>>(json);
-            //var cultura = JsonConvert.DeserializeObject<Cultura>(json);
-            var lista = new List<Cultura>();
 
+                numero.number = int.Parse(jObject["number"].ToString());                
+                numero.found = bool.Parse(jObject["found"].ToString());
+                numero.text = jObject["text"].ToString();
+                numero.type = jObject["type"].ToString();
 
+                
+                    
+            }
+            lista.Add(numero);
 
             return View(lista);
         }

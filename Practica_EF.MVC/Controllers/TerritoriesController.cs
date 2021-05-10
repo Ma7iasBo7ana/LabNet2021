@@ -96,6 +96,13 @@ namespace Practica_EF.MVC.Controllers
             }
         }
 
+        public ActionResult enviarvista()
+        {
+            Response.Redirect("https://localhost:44303/Api/ApiView");
+            return View();
+        }
+
        
     }
+
 }

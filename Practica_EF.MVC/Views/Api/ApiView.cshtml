@@ -1,0 +1,19 @@
+﻿@model List<Practica_EF.MVC.Models.Numbers>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>APi Index</h2>
+<table class="table table-dark">
+    @foreach (var numero in Model)
+    {
+        <tr>
+            <th scope="row">@numero.found</th>
+            <th scope="row">@numero.number</th>
+            <th scope="row">@numero.type</th>
+            <th scope="row">@numero.text</th>
+        </tr>
+
+    }
+</table>
+
