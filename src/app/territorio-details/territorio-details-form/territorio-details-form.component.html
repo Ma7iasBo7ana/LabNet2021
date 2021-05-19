@@ -1,0 +1,41 @@
+<style>
+   
+    input.invalid{
+        border-color: red;
+    }
+    input.valid{
+        border-color:green;
+    }
+</style>
+ 
+<form novalidate #form="ngForm"(submit)="onSubmit(form)">
+    <mat-checkbox   name="isActive" class="example-margin" [checked]="isChecked" ng-checked="isChecked" >Agregar registro</mat-checkbox>
+    <!-- <input type="hidden" name="TerritoryID" [value]="service.formData"> -->
+    
+    <div class="form-group">
+        <label>ID</label>
+        <input class="form-control form-control-lg" placeholder="Id" 
+        name="TerritoryID" #TerritoryID="ngModel" [(ngModel)]="service.formData.TerritoryID" 
+        >        
+    </div>
+    <div class="form-group">
+        <label>DESCRIPCION</label>
+        <input class="form-control form-control-lg" placeholder="Ingrese Descripcion" 
+        name="TerritoryDescription" #TerritoryDescription="ngModel" [(ngModel)]="service.formData.TerritoryDescription" 
+        required maxlength="50" [class.invalid]="TerritoryDescription.invalid && TerritoryDescription.touched" >
+        <small *ngIf="TerritoryDescription?.invalid && TerritoryDescription?.touched" class="text-danger">La descripción es requerida.</small> 
+        
+    </div>
+    <div class="form-group">
+        <label>REGION ID</label>
+        <input class="form-control form-control-lg" placeholder="Ingrese Region" 
+        name="RegionID" #RegionID="ngModel" [(ngModel)]="service.formData.RegionID" required [class.invalid]="RegionID.invalid && RegionID.touched">
+        <small *ngIf="RegionID?.invalid && RegionID?.touched" class="text-danger">La región es requerida.</small> 
+    </div>
+    <div class="form-group">
+        <br>
+        <button class="btn btn-info " type="submit"[disabled]="form.invalid">Agregar/Editar</button>
+        
+        
+    </div>
+</form>

@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-6" >
+        <app-territorio-details-form></app-territorio-details-form>
+    </div>
+    <div class="col-md-6">
+        <p>Para editar un registro presione en la linea que desea editar o bien escriba el id</p>
+        <table class="table table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th>Id</th>
+                    <th>Description</th>
+                    <th>Region ID</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pd of service.list">
+                    <td (click)="populateForm(pd)">{{pd.TerritoryID}}</td>
+                    <td (click)="populateForm(pd)">{{pd.TerritoryDescription}}</td>
+                    <td (click)="populateForm(pd)">{{pd.RegionID}}</td>                    
+                    <button class="btn btn-danger" (click)="Delete(pd.TerritoryID)">Borrar</button>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+
